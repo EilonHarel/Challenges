@@ -1,0 +1,26 @@
+# flag{Q_AQ!!_FIOIT_W$RWSQS$SI_G#GQF}
+# flag{I_WILL_NEVER_SUBSTITUTE_AGAIN}
+
+def word_4():
+    with open('Dictionary.txt', 'r') as file:
+        for i in file:
+            if len(i) == 11 and i[4] == i[6] == i[8] and i[0] == i[3]:
+                print (i)
+
+def word_1():
+    with open('Dictionary.txt', 'r') as file:
+        for i in file:
+            if len(i) == 5 and i[1] == 'I' and i[2] == i[3]:
+                print (i)
+
+def word_3():
+    with open('Dictionary.txt', 'r') as file:
+        for i in file:
+            if len(i) == 6 and i[1] == 'E' and i[3] == 'E' and i[0] != i[2] != i[4]:
+                print (i)
+
+def word_5():
+    with open('Dictionary.txt', 'r') as file:
+        for i in file:
+            if len(i) == 6 and i[0] == i[2] and i[4] == 'N':
+                print (i)
