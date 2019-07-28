@@ -1,0 +1,16 @@
+import requests
+import re
+
+def find_mess():
+    global mess
+    r = requests.get('http://www.pythonchallenge.com/pc/def/equality.html').text
+    mess = re.findall('<!--\n(.*)-->', r, re.DOTALL)
+    return (mess)
+
+
+def get_small_letter():
+    get_letter = re.findall(r'[a-z][A-Z]{3}([a-z])[A-Z]{3}[a-z]', str(mess))
+    print ("".join(get_letter))
+
+find_mess()
+get_small_letter()
