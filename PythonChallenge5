@@ -1,0 +1,24 @@
+import requests
+import re
+
+url = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing='
+req = requests.get('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345').text
+
+pattern = re.search('and the next nothing is (\d*$)', req)
+next_nothing = (pattern.group(1))
+
+
+while True:
+    try:
+        req = requests.get('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=%s' % next_nothing).text
+        pattern = re.search('and the next nothing is (\d*$)', req)
+        next_nothing = (pattern.group(1))
+        print (req)
+
+
+    except:
+        print (req)
+        if 'Divide' in req:
+            next_nothing = 16044/2
+        else:
+            break
