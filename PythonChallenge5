@@ -22,3 +22,31 @@ while True:
             next_nothing = 16044/2
         else:
             break
+
+
+''' With split'''
+
+import requests
+# import re
+
+url = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing='
+req = requests.get('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345').text
+
+reqSplit = req.split()
+next_nothing = reqSplit[-1]
+
+
+while True:
+    try:
+        req = requests.get('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=%s' % next_nothing).text
+        reqSplit = req.split()
+        next_nothing = reqSplit[-1]
+        print (req)
+
+
+    except:
+        print (req)
+        if 'Divide' in req:
+            next_nothing = 16044/2
+        else:
+            break
